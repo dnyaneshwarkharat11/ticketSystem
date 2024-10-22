@@ -26,4 +26,36 @@
     display: flex;
     align-items: center;
     gap: 10px; /* Add space between the button and filters */
+    text-wrap-mode: nowrap;
 }
+
+.input-group-text {
+    border-right: none;
+    background-color: transparent;
+}
+
+.form-control {
+    
+    border-left: none;
+}
+
+::ng-deep.mdc-tab {
+    min-width: unset !important;
+    padding-right: 15px !important;
+    padding-left: unset !important;
+    display: flex;
+    flex: 1 0 auto;
+      flex-grow: 1;
+    justify-content: left !important;
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
+    outline: none;
+    text-align: left !important;
+    white-space: nowrap;
+    cursor: pointer;
+    /* -webkit-appearance: none; */
+    z-index: 1;
+  }

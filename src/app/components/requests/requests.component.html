@@ -12,10 +12,69 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <button class="btn btn-primary">Add Requests</button>
+        <button class="btn btn-primary">
+         + New Requests</button>
       </div>
     </mat-card-header>
     <mat-divider></mat-divider>
+    <mat-card-header class="headerAlignment">
+      <div class="left-section">
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              All <span class="badge text-bg-dark ms-2">80</span>
+            </ng-template>
+            Content 1
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              Answered <span class="badge text-bg-success ms-2">1000</span>
+            </ng-template>
+            Content 1
+          </mat-tab>         
+          <mat-tab>
+            <ng-template mat-tab-label>
+              Closed <span class="badge text-bg-warning ms-2">85</span>
+            </ng-template>
+            Content 1
+          </mat-tab>       
+          <mat-tab>
+            <ng-template mat-tab-label>
+              Open <span class="badge text-bg-danger ms-2">22</span>
+            </ng-template>
+            Content 1
+          </mat-tab>     
+          <mat-tab>
+            <ng-template mat-tab-label>
+              Waiting <span class="badge text-bg-info ms-2">10</span>
+            </ng-template>
+            Content 1
+          </mat-tab>        
+          <mat-tab>
+            <ng-template mat-tab-label>
+              Inprogress <span class="badge text-bg-primary ms-2">46</span>
+            </ng-template>
+            Content 1
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+      <div class="right-section">
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="ri-search-line"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search input">
+        </div>
+        
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="ri-filter-3-line"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Assigned to you" aria-label="">
+        </div>
+      </div>
+    </mat-card-header>
     <mat-card-content>
         <div >
             <table mat-table [dataSource]="dataSource">

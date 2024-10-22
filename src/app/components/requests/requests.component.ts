@@ -3,6 +3,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatBadgeModule } from '@angular/material/badge';
+
 
 @Component({
   selector: 'app-requests',
@@ -11,7 +15,10 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
     MatCardModule,
     MatDividerModule,
     MatPaginator,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatTabsModule,
+    MatBadgeModule
   ],
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.css'

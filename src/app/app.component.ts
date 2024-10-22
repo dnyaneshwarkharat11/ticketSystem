@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   isLoginPage(): boolean {
-    return this.router.url != '/';
+    return this.router.url != '/login';
   }
 
 }
