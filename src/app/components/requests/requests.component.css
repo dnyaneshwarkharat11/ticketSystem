@@ -1,0 +1,29 @@
+.pageHeading {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18.78px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    /* flex-grow: 1; */
+}
+
+.headerAlignment{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+    padding: 10px;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Right side: Button and filters alignment */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the button and filters */
+}

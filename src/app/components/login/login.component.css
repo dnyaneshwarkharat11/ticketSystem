@@ -1,0 +1,77 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .background {
+    background-image: url('../../../assets/img/backgroundImage.png');
+    background-size: cover;
+    background-position: center;
+    /* height: 100%; */
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    color: #153060;
+  }
+  
+  .login-card {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-content {
+    text-align: center;
+  }
+  
+  .header-content img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .mt-10 {
+    margin-top: 10px;
+  }
+  
+  ::ng-deep .mat-mdc-form-field-flex {
+    align-items: center !important;
+    height: 40px !important;
+  }
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 40px !important;
+    background-color: #fafafa;
+  }
+
+  ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+  }
+
+  ::ng-deep .mat-mdc-form-field {
+    margin-bottom: 10px !important;
+  }
+
+  ::ng-deep mat-checkbox {
+    position: relative;
+    left: -10px;
+  }
+
+  /* ::ng-deep input::placeholder,mat-select::placeholder {
+    color: #9BADCA !important;
+  } */

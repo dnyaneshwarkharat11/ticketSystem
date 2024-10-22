@@ -1,0 +1,70 @@
+<div class="sidebar-area bg-white box-shadow" [ngClass]="{'active': isToggled}">
+    <div class="logo bg-white border-bottom">
+        <a routerLink="/Dashboard" class="d-flex align-items-center" style="width: 100%;;">
+            <img src="../../../assets/img/logo.svg" alt="logo" width="188px" height="50.08px">
+        </a>
+    </div>
+    <div class="burger-menu" (click)="toggle()" [ngClass]="{'active': isToggled}">
+        <span class="top-bar"></span>
+        <span class="middle-bar"></span>
+        <span class="bottom-bar"></span>
+    </div>
+    <!-- <ng-scrollbar visibility="hover" style="height: 100vh;"> -->
+        <div class="sidebar-inner">
+            <div class="sidebar-menu">
+                <mat-accordion>
+                    <ul class="custom-list">
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active" routerLink="/dashboard">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active" routerLink="/requests">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Requests</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Problems</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Changes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Releases</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Solutions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">Assets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-menu-link" routerLinkActive="active">
+                                <img src="../../../assets/img/graph.svg" style="width:32px; height: 32px">
+                                <span class="title" style="margin-left:10px !important;">CMDB</span>
+                            </a>
+                        </li>
+                    </ul>
+                </mat-accordion>
+            </div>
+        </div>
+    <!-- </ng-scrollbar> -->
+</div>

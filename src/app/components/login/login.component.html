@@ -1,0 +1,35 @@
+<div class="background">
+  <div class="container">
+    <mat-card class="login-card">
+      <mat-card-header class="header-container">
+        <div class="header-content">
+          <img src="../../../assets/img/alhammadi.png" alt="logo" width="188px" height="50.08px">
+          <h2 class="mt-10" height="52px" width="86px">Login</h2>
+        </div>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-label>Username</mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput formControlName="userName" required placeholder="Enter Username">
+          </mat-form-field>
+          <mat-label>Password</mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput type="password" formControlName="password" required placeholder="Enter Password">
+          </mat-form-field>
+          <mat-label>Local Authentication</mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-select formControlName="authentication" required placeholder="Not specified">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="user">User</mat-option>
+              <mat-option value="guest">Guest</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-checkbox formControlName="keepSignedIn">Keep me signed in</mat-checkbox>
+          <button mat-raised-button color="primary" type="submit" class="full-width">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
