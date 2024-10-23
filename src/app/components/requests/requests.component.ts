@@ -6,7 +6,9 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-requests',
@@ -18,13 +20,16 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatTableModule,
     MatIconModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    CommonModule
   ],
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.css'
 })
 export class RequestsComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['select', 'id', 'subject', 'status', 'priority', 'branch', 'initiatedBy', 'dueDate', 'assignedTo','createdDate', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -36,22 +41,78 @@ export class RequestsComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'Open':
+        return '#6A9FEF';
+      case 'Closed':
+        return '#F9859C';
+      case 'In Progress':
+        return '#F69E17';
+      case 'Success':
+        return '#22BBA0';
+      case 'Answered':
+        return '#FFC107';
+      case 'Waiting':
+        return '#FF7512';
+      default:
+        return '#F9859C';
+    }
+  }
+
+  getStatusTextColor(status: string): string {
+    switch (status) {
+      case 'Open':
+        return '#635AC1';
+      case 'Closed':
+        return '#D87185';
+      case 'In Progress':
+        return '#D17029';
+      case 'Success':
+        return '#358A62';
+      case 'Answered':
+        return '#FFC107';
+      case 'Waiting':
+        return '#D15143';
+      default:
+        return '#D87185';
+    }
+  }
+
+  getPriorityImage(priority: string): string {
+    switch (priority) {
+      case 'High':
+        return '../../../assets/img/highPriority.svg';
+      case 'Low':
+        return '../../../assets/img/lowPriority.svg';
+      case 'Medium':
+        return '../../../assets/img/mediumPriority.svg';
+      default:
+        return '';
+    }
+  }
 }
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  id: string;
+  subject: string;
+  status: string;
+  priority: string;
+  branch: string;
+  initiatedBy: string;
+  dueDate: string;
+  assignedTo: string;
+  createdDate: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {id: '1432', subject: 'Request for Pateint', status: 'Closed', priority:'Medium',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '2765', subject: 'Request for Pateint', status: 'Open', priority:'High',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '3324', subject: 'Request for Pateint', status: 'Success', priority:'Low',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '54434', subject: 'Request for Pateint', status: 'Answered', priority:'High',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '1235', subject: 'Request for Pateint', status: 'In Progress', priority:'Medium',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '6756', subject: 'Request for Pateint', status: 'Waiting', priority:'Low',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '7098', subject: 'Request for Pateint', status: 'Open', priority:'Low',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
+  {id: '8754', subject: 'Request for Pateint', status: 'Closed', priority:'High',branch:'Suwaidi',initiatedBy:'Syed Shehbaz',dueDate:'2023-10-23',assignedTo:'Lekshmanan',createdDate:'15-Sep-2023 19:40:12'},
 ];

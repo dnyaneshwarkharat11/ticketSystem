@@ -4,7 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RequestsComponent } from './components/requests/requests.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'login' }, // { path: '', component: LoginComponent },
+    // { path: '', pathMatch: 'full', redirectTo: 'login' }, // { path: '', component: LoginComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'requests', component: RequestsComponent },

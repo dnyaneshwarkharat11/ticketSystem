@@ -59,3 +59,86 @@
     /* -webkit-appearance: none; */
     z-index: 1;
   }
+
+    .badgeLayout {
+        padding: 6px 10px 6px 10px;
+        border-radius: 6px;
+        opacity: 0px;
+
+    }
+
+    .all-bg-color {
+        background-color:#212B36;
+        color: white;
+    }
+
+    .answered-bg-color {
+        background-color:#DBF6E5;
+        color: #0C8A53;
+    }   
+    .closed-bg-color {
+        background-color:#FEE4DE;
+        color: #B9211C;
+    }   
+    .waiting-bg-color {
+        background-color:#EEDFFE;
+        color: #4C13B5;
+    }   
+    .open-bg-color {
+        background-color:#FEF1D6;
+        color: #BA7309;
+    }   
+    .inprogress-bg-color {
+        background-color:#D6EBFF;
+        color: #036CCD;
+    }
+
+    ::ng-deep .form-control:focus {
+        box-shadow:unset !important;
+        border-color: #dee2e6 !important;
+    }
+
+    ::ng-deep .mat-mdc-tab-header {
+        display: -webkit-box !important;
+        padding-left: 10px !important;
+    }
+
+    ::ng-deep .mat-mdc-card-content{
+        padding-left: unset !important;
+        padding-right: unset !important;
+    }
+
+    .dot-btn {
+        /* width: Fixed (38px)px; */
+        /* height: Fixed (34px)px; */
+        padding: 5px 12px ;
+        border-radius: 8px;
+        border: solid 1px #DEE0E5;
+    }
+
+    .dotColor{
+        color: #7D8595;
+    }
+
+    ::ng-deep .mat-mdc-header-cell {
+        border-top-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12)) !important;
+        border-top-width: var(--mat-table-row-item-outline-width, 1px) !important;
+        border-top-style: solid !important;
+      }
+
+    .tHeadDesign {
+        background-color: #F8F9FB;
+        color: #9698A1;
+    }
+
+    .statusIndicator {
+        display: inline-block; 
+        width: 12px;
+        height: 8px;
+        border-radius: 100px; 
+        margin-right: 2px;
+      }
+
+      ::ng-deep .custom-checkbox .mat-checkbox-frame {
+        border-color: #FF5733 !important; /* Change to your desired border color */
+      }

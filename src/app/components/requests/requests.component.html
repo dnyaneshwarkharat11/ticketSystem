@@ -17,98 +17,153 @@
       </div>
     </mat-card-header>
     <mat-divider></mat-divider>
-    <mat-card-header class="headerAlignment">
-      <div class="left-section">
-        <mat-tab-group>
-          <mat-tab>
-            <ng-template mat-tab-label>
-              All <span class="badge text-bg-dark ms-2">80</span>
-            </ng-template>
-            Content 1
-          </mat-tab>
-          <mat-tab>
-            <ng-template mat-tab-label>
-              Answered <span class="badge text-bg-success ms-2">1000</span>
-            </ng-template>
-            Content 1
-          </mat-tab>         
-          <mat-tab>
-            <ng-template mat-tab-label>
-              Closed <span class="badge text-bg-warning ms-2">85</span>
-            </ng-template>
-            Content 1
-          </mat-tab>       
-          <mat-tab>
-            <ng-template mat-tab-label>
-              Open <span class="badge text-bg-danger ms-2">22</span>
-            </ng-template>
-            Content 1
-          </mat-tab>     
-          <mat-tab>
-            <ng-template mat-tab-label>
-              Waiting <span class="badge text-bg-info ms-2">10</span>
-            </ng-template>
-            Content 1
-          </mat-tab>        
-          <mat-tab>
-            <ng-template mat-tab-label>
-              Inprogress <span class="badge text-bg-primary ms-2">46</span>
-            </ng-template>
-            Content 1
-          </mat-tab>
-        </mat-tab-group>
 
-      </div>
-      <div class="right-section">
-        <div class="input-group">
-          <span class="input-group-text">
-            <i class="ri-search-line"></i>
-          </span>
-          <input type="text" class="form-control" placeholder="Search" aria-label="Search input">
-        </div>
-        
-        <div class="input-group">
-          <span class="input-group-text">
-            <i class="ri-filter-3-line"></i>
-          </span>
-          <input type="text" class="form-control" placeholder="Assigned to you" aria-label="">
-        </div>
-      </div>
-    </mat-card-header>
     <mat-card-content>
-        <div >
-            <table mat-table [dataSource]="dataSource">
+      <!-- <div class="headerAlignment"> -->
+        <!-- <div > -->
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                All <span class="badgeLayout all-bg-color ms-2">80</span>
+              </ng-template>
+              <div>
+                <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="select">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"></th>
+                    <td mat-cell *matCellDef="let row">
+                      <mat-checkbox class="custom-checkbox" aria-selected="false">
+                      </mat-checkbox>
+                    </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="subject">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Subject </th>
+                    <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Status </th>
+                    <td mat-cell *matCellDef="let element" class="align-items-center">
+                      <span class="statusIndicator" [ngStyle]="{'background-color': getStatusColor(element.status)}"></span> 
+                     <span [ngStyle]="{'color':getStatusTextColor(element.status)}">{{element.status}}</span>  </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="priority">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Priority </th>
+                    <td mat-cell *matCellDef="let element">
+                      <img src="{{getPriorityImage(element.priority)}}" alt="" style="margin-right: 5px;"> 
+                      <span style="font-weight: 500;color: #696969;">{{element.priority}}</span></td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="branch">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Branch </th>
+                    <td mat-cell *matCellDef="let element"> {{element.branch}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="initiatedBy">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Initiated By </th>
+                    <td mat-cell *matCellDef="let element"> {{element.initiatedBy}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="dueDate">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Due Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="assignedTo">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Assigned To </th>
+                    <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="createdDate">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Created Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef class="tHeadDesign"> Actions </th>
+                    <td mat-cell *matCellDef="let element" class="text-center"> 
+                      <button type="button" mat-button class="position-relative dot-btn bg-transparent" [matMenuTriggerFor]="actionMenu">
+                        <i class="ri-more-fill dotColor"></i>
+                    </button>
+                    <mat-menu #actionMenu="matMenu" class="dotMenu two monthMenu" xPosition="before">
+                        <button  mat-menu-item  class="bg-transparent border-none position-relative">
+                            <i class="ri-edit-fill text-primary"></i> edit
+                        </button>
+                      
+                        <button mat-menu-item class="bg-transparent border-none position-relative">
+                            <i class="ri-delete-bin-line text-danger"></i> delete
+                        </button>
+                    </mat-menu>  
+                    </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+              </div>
+            </mat-tab>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                Answered <span class="badgeLayout answered-bg-color ms-2">1000</span>
+              </ng-template>
+              Content 1
+            </mat-tab>         
+            <mat-tab>
+              <ng-template mat-tab-label>
+                Closed <span class="badgeLayout closed-bg-color ms-2">85</span>
+              </ng-template>
+              Content 1
+            </mat-tab>       
+            <mat-tab>
+              <ng-template mat-tab-label>
+                Open <span class="badgeLayout open-bg-color ms-2">22</span>
+              </ng-template>
+              Content 1
+            </mat-tab>     
+            <mat-tab>
+              <ng-template mat-tab-label>
+                Waiting <span class="badgeLayout waiting-bg-color ms-2">10</span>
+              </ng-template>
+              Content 1
+            </mat-tab>        
+            <mat-tab>
+              <ng-template mat-tab-label>
+                Inprogress <span class="badgeLayout inprogress-bg-color ms-2">46</span>
+              </ng-template>
+              Content 1
+            </mat-tab>
+          </mat-tab-group>
+        <!-- </div> -->
+
+          <!-- <div>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="ri-search-line"></i>
+              </span>
+              <input type="text" class="form-control" placeholder="Search" aria-label="Search input">
+            </div>
           
-              <!-- Position Column -->
-              <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-              </ng-container>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="ri-filter-3-line"></i>
+              </span>
+              <input type="text" class="form-control" placeholder="Assigned to you" aria-label="">
+            </div>
+          </div> -->
+        <!-- </div> -->
+        <!-- <div class="right-section">
           
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-              </ng-container>
-          
-              <!-- Weight Column -->
-              <ng-container matColumnDef="weight">
-                <th mat-header-cell *matHeaderCellDef> Weight </th>
-                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-              </ng-container>
-          
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="symbol">
-                <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-              </ng-container>
-          
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-          </div>
+        </div> -->
+      <!-- </div> -->
+       
           
     </mat-card-content>
 </mat-card>
