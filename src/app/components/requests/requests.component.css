@@ -142,3 +142,7 @@
       ::ng-deep .custom-checkbox .mat-checkbox-frame {
         border-color: #FF5733 !important; /* Change to your desired border color */
       }
+
+      .paginatorTextColor {
+        color: #B5B7C0;
+      }

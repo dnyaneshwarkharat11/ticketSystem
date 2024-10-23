@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
     MatBadgeModule,
     MatCheckboxModule,
     MatMenuModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.css'
